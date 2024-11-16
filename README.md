@@ -4,7 +4,7 @@ This project is a Movie Database that stores detailed information about movies, 
 
 Here is a link to the IMDbOT github: https://github.com/TelegramPlayGround/Free-Movie-Series-DB-API
 
-- Technologies Used
+- Technologies Used <br>
 PostgreSQL: The primary database used to store movie-related data.
 Node.js: Server-side runtime environment for handling API requests and database operations.
 Axios: For HTTP requests to external services (e.g., TMDB, IMDB).
@@ -12,7 +12,7 @@ pg (node-postgres): PostgreSQL client for Node.js.
 
 To install these dependencies, please enter 'npm i' in your terminal
 
-- Connection to your Postgre Server
+- Connection to your Postgre Server<br>
 
 At the start of the database.js file, you can modify the credentials with your postgre credentials to run on your localhost.
 With this, you should be able to create a database instance via the database client pg for node.js
@@ -51,8 +51,7 @@ You can view the database.js file directly or view the populationQueries.txt for
 
 I have written some queries you can run in the queries.sql file. They do the following:
 
-[IN viewCreation]
-
+- IN viewCreation
 
 The viewCreation.sql file creates a view named 'movie-summary' that displays tmdb key,
 imdb key, title, description / plot, content rating, number of keywords, number of countries
