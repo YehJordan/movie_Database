@@ -1,0 +1,55 @@
+This txt file shows the queries found in script (database.js)
+
+--[FOR MOVIE TABLE]--
+
+INSERT INTO movie (imdb_ID, title, aka, plot, viewerRating, releaseYear) 
+VALUES ($1, $2, $3, $4, $5, $6) 
+RETURNING movie_id
+
+--[FOR ACTOR AND MOVIE_ACTOR TABLES]--
+
+INSERT INTO actor (actor_name) VALUES ($1) ON CONFLICT (actor_name) DO NOTHING RETURNING actor_id
+SELECT actor_id FROM actor WHERE actor_name = $1 // The $1 is the actor's name
+
+INSERT INTO movie_actor (movie_id, actor_id) VALUES ($1, $2) ON CONFLICT DO NOTHING //$1 = movie id, $2 = actor id
+
+--[FOR DIRECTOR AND MOVIE_DIRECTOR TABLES]--
+
+INSERT INTO director (director_name) VALUES ($1) ON CONFLICT (director_name) DO NOTHING RETURNING director_id
+SELECT director_id FROM director WHERE director_name = $1 //The $1 is the director's name
+
+INSERT INTO movie_director (movie_id, director_id) VALUES ($1, $2) ON CONFLICT DO NOTHING // $1 = movie id, $2 = director id
+
+--[FOR GENRE AND MOVIE_GENRE TABLE]--
+
+INSERT INTO genre (name) VALUES ($1) ON CONFLICT (name) DO NOTHING RETURNING genre_id
+SELECT genre_id FROM genre WHERE name = $1 //The $1 represents the genre
+
+INSERT INTO movie_genre (movie_id, genre_id) VALUES ($1, $2) ON CONFLICT DO NOTHING // $1 = movie id, $2 = genre id
+
+--[FOR COUNTRY AND COUNTRY TABLE]--
+
+INSERT INTO country (country_name) VALUES ($1) ON CONFLICT (country_name) DO NOTHING RETURNING country_id
+SELECT country_id FROM country WHERE country_name = $1 // The $1 represents the country name
+
+INSERT INTO movie_country (movie_id, country_id) VALUES ($1, $2) ON CONFLICT DO NOTHING // The $1 represents movie id, $2 = country id
+
+--[FOR KEYWORD AND MOVIE_KEYWORD TABLES]--
+
+INSERT INTO keyword (keyword) VALUES ($1) RETURNING keyword_id //$1 = keyword
+
+INSERT INTO movie_keyword (movie_id, keyword_id) VALUES ($1, $2) ON CONFLICT DO NOTHING //$1 = movie_id, $2 = keyword_id
+
+--[FOR CONTENT_RATING AND MOVIE_CONTENT_RATING TABLES]--
+
+INSERT INTO content_rating (content_rating) VALUES ($1) RETURNING content_rating_id //$1 = content_rating
+
+INSERT INTO movie_content_rating (movie_id, content_rating_id) VALUES ($1, $2) ON CONFLICT DO NOTHING //$1 = movie_id, $2 = content_rating_id
+
+--[FOR LANG AND MOVIE_LANG TABLE]--
+
+INSERT INTO lang (language_name) VALUES ($1) ON CONFLICT (language_name) DO NOTHING RETURNING language_id //$1 = language_name
+SELECT language_id FROM lang WHERE language_name = $1 //$1 = language_name
+
+INSERT INTO movie_lang (movie_id, language_id) VALUES ($1, $2) ON CONFLICT DO NOTHING //$1 = movie_id, $2 = language_id
+
