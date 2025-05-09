@@ -57,22 +57,29 @@ The viewCreation.sql file creates a view named 'movie-summary' that displays tmd
 imdb key, title, description / plot, content rating, number of keywords, number of countries
 
 [IN queries.sql]
+
 A)  Finds the total number of movies with and without IMDB id in the database.
+
 B)  Picks an actor. (modifiable in queries.sql) Finds all movies by that actor that is released between 2000 and
 2020. Lists TMDB-id, IMDB-id, movie title, release date, and watchmode-id.
+
 C)  Finds the top movies that have highest number of reviews.
+
 D)  Find number of movies that are in more than one language.
+
 E)  For each language, lists how many movies are there in the database. Ordered by highest rank.
+
 F)  Finds top 2 comedies (higher ratings).
+
 G)  A query that rounds up all the ratings.
 
 [SUMMARY OF SETUP]
 
 
-1) Clone all files/folders/json onto local device.
-2)Install dependencies with your terminal by writing 'npm i' (You also need node.js on your device)
-3)Set up your postgre credentials at the start of the 'database.js' file
+1) Clone all files/folders/json onto local device
+2) Install dependencies with your terminal by writing 'npm i'
+3) Set up your postgre credentials at the start of the 'database.js' file
 4) Setup the database by running the queries using the dbCreation.sql file
 5) Populate the database by running the database.js script by writing 'node database' in your terminal
 6) (Optional) Create the database view by running the queries in viewCreation.sql
-6) (Optional) If you want, run the queries found in queries.sql to test the database.
+7) (Optional) If you want, run the queries found in queries.sql to test the database.
